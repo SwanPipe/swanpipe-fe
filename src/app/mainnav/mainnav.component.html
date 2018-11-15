@@ -24,7 +24,18 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>swanpipe-fe</span>
+      <span class="example-fill-remaining-space"> </span>
+      <span>Andy Newton</span>
+      <button mat-button [matMenuTriggerFor]="menu">
+        <img class="logo_img" src="assets/images/rcode3.png" alt="" />
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item><mat-icon>pages</mat-icon>Music</button>
+        <button mat-menu-item><mat-icon>pages</mat-icon>Technology</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item><mat-icon>home</mat-icon>@rcode3@roughseas.xyz</button>
+      </mat-menu>
     </mat-toolbar>
     <!-- Add Content Here -->
   </mat-sidenav-content>

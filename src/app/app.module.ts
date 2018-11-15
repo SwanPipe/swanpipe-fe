@@ -6,7 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainnavComponent } from './mainnav/mainnav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatMenuModule
+} from '@angular/material';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -34,6 +41,7 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatMenuModule,
     HttpClientModule
   ],
   providers: [
