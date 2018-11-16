@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainnavComponent } from './mainnav/mainnav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MatToolbarModule,
   MatButtonModule,
@@ -46,6 +47,7 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     BrowserAnimationsModule,
     LayoutModule,
     FormsModule,
+    FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
