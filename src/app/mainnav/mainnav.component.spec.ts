@@ -7,9 +7,22 @@ import {
   MatListModule,
   MatSidenavModule,
   MatToolbarModule,
+  MatMenuModule
 } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MainnavComponent } from './mainnav.component';
+
+import {NO_ERRORS_SCHEMA} from "@angular/core";
+import {AppConfigService} from "../app-config.service";
+
+class MockAppConfigService {
+  getConfig() {
+    return {
+      "menuName" : "foo"
+    }
+  }
+}
 
 describe('MainnavComponent', () => {
   let component: MainnavComponent;
@@ -17,7 +30,7 @@ describe('MainnavComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MainnavComponent],
+      declarations: [MainnavComponent ],
       imports: [
         NoopAnimationsModule,
         LayoutModule,
@@ -26,7 +39,13 @@ describe('MainnavComponent', () => {
         MatListModule,
         MatSidenavModule,
         MatToolbarModule,
-      ]
+        MatMenuModule,
+        HttpClientModule,
+      ],
+      providers: [
+        { provide: AppConfigService, useClass: MockAppConfigService }
+      ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     }).compileComponents();
   }));
 

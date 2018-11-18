@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginAccountComponent } from './login-account.component';
+import {NO_ERRORS_SCHEMA} from "@angular/core";
 
 describe('LoginAccountComponent', () => {
   let component: LoginAccountComponent;
@@ -8,7 +9,8 @@ describe('LoginAccountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginAccountComponent ]
+      declarations: [ LoginAccountComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));

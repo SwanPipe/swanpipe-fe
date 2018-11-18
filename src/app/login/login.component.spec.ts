@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from "@angular/forms";
+
+import { AppRoutingModule } from "../app-routing.module";
 
 import { LoginComponent } from './login.component';
+import { LoginAccountComponent } from "../login-account/login-account.component";
+
+import {NO_ERRORS_SCHEMA} from "@angular/core";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -8,7 +14,15 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
+      declarations: [
+        LoginComponent,
+        LoginAccountComponent
+      ],
+      imports: [
+        FormsModule,
+        AppRoutingModule,
+      ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
