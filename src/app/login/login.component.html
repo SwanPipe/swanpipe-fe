@@ -1,31 +1,34 @@
-<mat-card class="example-card">
-  <img mat-card-xl-image src="/assets/images/swan-black-on-white.svg"/>
-  <mat-card-title-group>
-    <mat-card-title>SwanPipe</mat-card-title>
-    <mat-card-subtitle>Log In</mat-card-subtitle>
-  </mat-card-title-group>
-  <mat-card-content>
-    <form #loginForm="ngForm" (ngSubmit)="login()" class="example-container">
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2%" class="login-container">
+  <div><img class="login-logo" src="/assets/images/swan-black-on-white-no-margin.svg"/></div>
+  <div>SwanPipe on snarkfail.com</div>
+  <mat-card >
+    <mat-card-title-group>
+      <mat-card-title>Log In</mat-card-title>
+    </mat-card-title-group>
+    <mat-card-content>
+        <form #loginForm="ngForm" (ngSubmit)="login()" >
 
-      <mat-form-field>
-        <input matInput placeholder="Username"
-               required name="username"
-               [(ngModel)]="username">
-      </mat-form-field>
+          <div fxLayout="column">
+            <mat-form-field>
+              <input matInput placeholder="Username"
+                     required name="username"
+                     [(ngModel)]="username">
+            </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Enter your password"
-               [type]="hide ? 'password' : 'text'"
-               required name="password"
-               [(ngModel)]="password" >
-        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Enter your password"
+                     [type]="hide ? 'password' : 'text'"
+                     required name="password"
+                     [(ngModel)]="password" >
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
 
-      <button mat-raised-button type="reset">Cancel</button>
-      <button mat-raised-button type="submit" color="accent"
-              [disabled]="!loginForm.form.valid">Submit</button>
+            <button mat-raised-button type="submit" color="accent"
+                    [disabled]="!loginForm.form.valid">Submit</button>
+          </div>
 
-    </form>
-    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-  </mat-card-content>
-</mat-card>
+        </form>
+      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+  </mat-card>
+</div>
