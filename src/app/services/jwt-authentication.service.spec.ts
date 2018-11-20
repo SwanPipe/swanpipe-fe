@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { JwtAuthenticationServiceService } from './jwt-authentication.service';
+import { JwtAuthenticationService } from './jwt-authentication.service';
 import {AppConfigService} from "../app-config.service";
 import {NO_ERRORS_SCHEMA} from "@angular/core";
 import {HttpClientModule} from "@angular/common/http";
@@ -23,7 +23,7 @@ describe('JwtAuthenticationServiceService', () => {
   }));
 
   it('should be created', () => {
-    const service: JwtAuthenticationServiceService = TestBed.get(JwtAuthenticationServiceService);
+    const service: JwtAuthenticationService = TestBed.get(JwtAuthenticationService);
     expect(service).toBeTruthy();
   });
 });
