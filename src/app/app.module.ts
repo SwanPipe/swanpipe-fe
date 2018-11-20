@@ -29,7 +29,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginAccountComponent } from './login-account/login-account.component';
 import { JwtInterceptorService } from "./interceptors/jwt-interceptor.service";
 import { ErrorInterceptorService } from "./interceptors/error-interceptor.service";
-import {JwtAuthenticationServiceService} from "./services/jwt-authentication-service.service";
+import {JwtAuthenticationService} from "./services/jwt-authentication.service";
 
 const appInitializerFn = (appConfig: AppConfigService) => {
   return () => {
@@ -73,7 +73,7 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
-    JwtAuthenticationServiceService
+    JwtAuthenticationService
   ],
   bootstrap: [AppComponent]
 })

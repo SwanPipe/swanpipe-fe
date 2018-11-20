@@ -7,7 +7,7 @@ import { LoginComponent } from './login.component';
 import { LoginAccountComponent } from "../login-account/login-account.component";
 
 import {NO_ERRORS_SCHEMA} from "@angular/core";
-import {JwtAuthenticationServiceService} from "../services/jwt-authentication-service.service";
+import {JwtAuthenticationService} from "../services/jwt-authentication.service";
 
 class MockJwtAuthService {
   login( id: string, password: string ) {}
@@ -29,7 +29,7 @@ describe('LoginComponent', () => {
         AppRoutingModule
       ],
       providers: [
-        { provide: JwtAuthenticationServiceService, useClass: MockJwtAuthService }
+        { provide: JwtAuthenticationService, useClass: MockJwtAuthService }
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })

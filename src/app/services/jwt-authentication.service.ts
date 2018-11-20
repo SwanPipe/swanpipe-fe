@@ -7,7 +7,7 @@ import { AppConfigService } from '../app-config.service';
 @Injectable({
   providedIn: 'root'
 })
-export class JwtAuthenticationServiceService {
+export class JwtAuthenticationService {
 
   httpOptions = {
     headers: new HttpHeaders( {

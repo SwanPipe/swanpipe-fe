@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 
-import { JwtAuthenticationServiceService } from "../services/jwt-authentication-service.service";
+import { JwtAuthenticationService } from "../services/jwt-authentication.service";
 import {first} from "rxjs/operators";
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private jwtAuth: JwtAuthenticationServiceService
+    private jwtAuth: JwtAuthenticationService
   ) { }
 
   ngOnInit() {

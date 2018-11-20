@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { JwtAuthenticationServiceService } from './jwt-authentication-service.service';
+import { JwtAuthenticationServiceService } from './jwt-authentication.service';
 import {AppConfigService} from "../app-config.service";
 import {NO_ERRORS_SCHEMA} from "@angular/core";
 import {HttpClientModule} from "@angular/common/http";

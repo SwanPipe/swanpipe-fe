@@ -8,7 +8,7 @@ import {
 import {Observable, throwError} from "rxjs";
 import { catchError } from "rxjs/operators";
 
-import { JwtAuthenticationServiceService } from "../services/jwt-authentication-service.service";
+import { JwtAuthenticationService } from "../services/jwt-authentication.service";
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +25,5 @@ export class ErrorInterceptorService implements HttpInterceptor {
     }));
   }
 
-  constructor(private jwtAuth: JwtAuthenticationServiceService ) { }
+  constructor(private jwtAuth: JwtAuthenticationService) { }
 }
