@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 
+import { JwtAuthenticationServiceService } from "../services/jwt-authentication-service.service";
+import {first} from "rxjs/operators";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,21 +11,28 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  username: String;
-  password: String;
+  username: string;
+  password: string;
 
-  constructor(private router: Router ) { }
+  constructor(
+    private router: Router,
+    private jwtAuth: JwtAuthenticationServiceService
+  ) { }
 
   ngOnInit() {
   }
 
   login() : void {
-    if( this.username == 'admin' && this.password == 'admin' ) {
-      this.router.navigate(["login-account"] );
-    }
-    else {
-      alert( "Invalid Credentials" );
-    }
+    this.jwtAuth.login( this.username, this.password )
+      .pipe( first() )
+      .subscribe(
+        data => {
+          this.router.navigate(["login-account"] );
+      },
+      error => {
+        alert( "Invalid Credentials" );
+      }
+      );
   }
 
 }

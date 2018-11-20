@@ -21,12 +21,15 @@ import {
   MatInputModule
 } from '@angular/material';
 
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 
 import { AppConfigService } from './app-config.service';
 import { LoginComponent } from './login/login.component';
 import { LoginAccountComponent } from './login-account/login-account.component';
+import { JwtInterceptorService } from "./interceptors/jwt-interceptor.service";
+import { ErrorInterceptorService } from "./interceptors/error-interceptor.service";
+import {JwtAuthenticationServiceService} from "./services/jwt-authentication-service.service";
 
 const appInitializerFn = (appConfig: AppConfigService) => {
   return () => {
@@ -67,7 +70,10 @@ const appInitializerFn = (appConfig: AppConfigService) => {
       useFactory: appInitializerFn,
       multi: true,
       deps: [AppConfigService]
-    }
+    },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
+    JwtAuthenticationServiceService
   ],
   bootstrap: [AppComponent]
 })

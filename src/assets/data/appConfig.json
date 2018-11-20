@@ -1,3 +1,4 @@
 {
-  "menuName" : "SnarkFail"
+  "menuName" : "SnarkFail",
+  "backendUrl" : "http://localhost:8080"
 }
