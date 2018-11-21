@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Login} from "../models/login";
+
+import { LoginAccountService } from "../services/login-account.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-login-account',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginAccountComponent implements OnInit {
 
-  constructor() { }
+  login : Login = new Login();
+
+  constructor(private service : LoginAccountService ) { }
 
   ngOnInit() {
+    this.service.loginAccount()
+      .subscribe( login => {
+        this.login = login
+      });
   }
 
 }

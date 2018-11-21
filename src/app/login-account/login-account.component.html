@@ -1,3 +1,12 @@
-<p>
-  login-account works!
-</p>
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2%" class="login-account-container">
+  <div><img class="login-account-logo" src="/assets/images/swan-black-on-white-no-margin.svg"/></div>
+  <div>SwanPipe on snarkfail.com</div>
+  <mat-card >
+    <mat-card-title-group>
+      <mat-card-title>Login ID: {{login.loginId}}</mat-card-title>
+    </mat-card-title-group>
+    <mat-card-content>
+      <p>Created: {{login.created}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

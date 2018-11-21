@@ -18,7 +18,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
     return next.handle(req).pipe(catchError( err => {
       if( err.status === 401 ) {
         this.jwtAuth.logout();
-        location.reload( true );
+        //location.reload( true );
       }
       const error = err.error.message || err.statusText;
       return throwError( error );
