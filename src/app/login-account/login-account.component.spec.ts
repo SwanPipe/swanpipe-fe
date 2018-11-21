@@ -1,17 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LoginAccountComponent } from './login-account.component';
+import {LoginAccountComponent} from './login-account.component';
 import {NO_ERRORS_SCHEMA} from "@angular/core";
-import { LoginAccountService } from "../services/login-account.service";
-import {Observable } from "rxjs";
-import { of } from "rxjs"
-import {Login} from "../models/login";
+import {LoginAccountService} from "../services/login-account.service";
 
-class MockLoginAccountService {
-  loginAccount() : Observable<Login> {
-    return of( new Login() )
-  }
-}
+import {MockLoginAccountService} from "../mocks/mock-login-account-service";
 
 describe('LoginAccountComponent', () => {
   let component: LoginAccountComponent;

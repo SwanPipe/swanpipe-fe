@@ -16,13 +16,7 @@ import { MainnavComponent } from './mainnav.component';
 import {NO_ERRORS_SCHEMA} from "@angular/core";
 import {AppConfigService} from "../app-config.service";
 
-class MockAppConfigService {
-  getConfig() {
-    return {
-      "menuName" : "foo"
-    }
-  }
-}
+import { MockAppConfigService } from "../mocks/mock-app-config-service";
 
 describe('MainnavComponent', () => {
   let component: MainnavComponent;

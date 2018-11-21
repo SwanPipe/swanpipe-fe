@@ -6,14 +6,7 @@ import {AppConfigService} from "../app-config.service";
 import {NO_ERRORS_SCHEMA} from "@angular/core";
 import {HttpClientModule} from "@angular/common/http";
 
-class MockAppConfigService {
-  getConfig() {
-    return {
-      "menuName" : "foo",
-      "backendUrl" : "http://localhost"
-    }
-  }
-}
+import { MockAppConfigService } from "../mocks/mock-app-config-service";
 
 describe('LoginAccountService', () => {
   beforeEach(() => TestBed.configureTestingModule({

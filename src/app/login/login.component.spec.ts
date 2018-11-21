@@ -9,10 +9,7 @@ import { LoginAccountComponent } from "../login-account/login-account.component"
 import {NO_ERRORS_SCHEMA} from "@angular/core";
 import {JwtAuthenticationService} from "../services/jwt-authentication.service";
 
-class MockJwtAuthService {
-  login( id: string, password: string ) {}
-  logout() {}
-}
+import { MockJwtAuthService } from "../mocks/mock-jwt-auth-service";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

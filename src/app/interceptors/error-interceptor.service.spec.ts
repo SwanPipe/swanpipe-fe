@@ -4,10 +4,7 @@ import { ErrorInterceptorService } from './error-interceptor.service';
 import {HttpClientModule} from "@angular/common/http";
 import {JwtAuthenticationService} from "../services/jwt-authentication.service";
 
-class MockJwtAuthService {
-  login( id: string, password: string ) {}
-  logout() {}
-}
+import { MockJwtAuthService } from "../mocks/mock-jwt-auth-service";
 
 describe('ErrorInterceptorService', () => {
   beforeEach(() => TestBed.configureTestingModule({
