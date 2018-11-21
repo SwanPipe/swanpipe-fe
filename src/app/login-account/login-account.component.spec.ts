@@ -3,12 +3,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginAccountComponent } from './login-account.component';
 import {NO_ERRORS_SCHEMA} from "@angular/core";
 import { LoginAccountService } from "../services/login-account.service";
-import {Observable} from "rxjs";
+import {Observable } from "rxjs";
+import { of } from "rxjs"
 import {Login} from "../models/login";
 
 class MockLoginAccountService {
   loginAccount() : Observable<Login> {
-    return Observable.create( new Login() );
+    return of( new Login() )
   }
 }
 
