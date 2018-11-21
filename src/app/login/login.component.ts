@@ -27,7 +27,7 @@ import {first} from "rxjs/operators";
 })
 export class LoginComponent implements OnInit {
 
-  username: string;
+  loginId: string;
   password: string;
 
   constructor(
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() : void {
-    this.jwtAuth.login( this.username, this.password )
+    this.jwtAuth.login( this.loginId, this.password )
       .pipe( first() )
       .subscribe(
         data => {
