@@ -18,10 +18,13 @@
   <app-site-plague></app-site-plague>
   <mat-card >
     <mat-card-title-group>
-      <mat-card-title>Login ID: {{accountInfo.loginId}}</mat-card-title>
+      <mat-card-title>Account Details</mat-card-title>
     </mat-card-title-group>
     <mat-card-content>
+      <p>Login ID: {{accountInfo.loginId}}</p>
       <p>Created: {{accountInfo.created | date:'medium'}}</p>
+      <p *ngIf="lastSuccessfulLogin()">Last Login: {{lastSuccessfulLogin() | date:'medium'}}</p>
+      <p *ngIf="lastFailedLogin()">Last Failed Login: {{lastFailedLogin() | date:'medium'}}</p>
     </mat-card-content>
   </mat-card>
 </div>
