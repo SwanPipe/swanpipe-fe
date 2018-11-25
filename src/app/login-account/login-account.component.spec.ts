@@ -22,13 +22,20 @@ import {NO_ERRORS_SCHEMA} from "@angular/core";
 import {MockAccountInfoService} from "../mocks/mock-account-info-service";
 import {AccountInfoService} from "../services/account-info.service";
 
+import { MatTableModule } from "@angular/material";
+
 describe('LoginAccountComponent', () => {
   let component: LoginAccountComponent;
   let fixture: ComponentFixture<LoginAccountComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginAccountComponent ],
+      declarations: [
+        LoginAccountComponent,
+      ],
+      imports: [
+        MatTableModule
+      ],
       providers: [
         { provide: AccountInfoService, useClass: MockAccountInfoService }
       ],

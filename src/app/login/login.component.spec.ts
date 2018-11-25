@@ -16,6 +16,7 @@
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from "@angular/forms";
+import { MatTableModule } from "@angular/material";
 
 import { AppRoutingModule } from "../app-routing.module";
 
@@ -39,7 +40,8 @@ describe('LoginComponent', () => {
       ],
       imports: [
         FormsModule,
-        AppRoutingModule
+        AppRoutingModule,
+        MatTableModule
       ],
       providers: [
         { provide: JwtAuthenticationService, useClass: MockJwtAuthService }
