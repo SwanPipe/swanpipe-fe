@@ -14,27 +14,11 @@
  * limitations under the License.
  */
 
-import { Component, OnInit } from '@angular/core';
-import {Login} from "../models/login";
-
-import { AccountInfoService } from "../services/account-info.service";
-
-@Component({
-  selector: 'app-login-account',
-  templateUrl: './login-account.component.html',
-  styleUrls: ['./login-account.component.scss']
-})
-export class LoginAccountComponent implements OnInit {
-
-  login : Login = new Login();
-
-  constructor(private service : AccountInfoService ) { }
-
-  ngOnInit() {
-    this.service.accountInfo()
-      .subscribe( login => {
-        this.login = login
-      });
-  }
-
+export class AccountInfo {
+  loginId: string;
+  created: string;
+  enabled: boolean;
+  data: object;
+  actors: { pun: string, owner: boolean}[];
 }
+

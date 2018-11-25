@@ -18,9 +18,9 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {LoginAccountComponent} from './login-account.component';
 import {NO_ERRORS_SCHEMA} from "@angular/core";
-import {LoginAccountService} from "../services/login-account.service";
 
-import {MockLoginAccountService} from "../mocks/mock-login-account-service";
+import {MockAccountInfoService} from "../mocks/mock-account-info-service";
+import {AccountInfoService} from "../services/account-info.service";
 
 describe('LoginAccountComponent', () => {
   let component: LoginAccountComponent;
@@ -30,7 +30,7 @@ describe('LoginAccountComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ LoginAccountComponent ],
       providers: [
-        { provide: LoginAccountService, useClass: MockLoginAccountService }
+        { provide: AccountInfoService, useClass: MockAccountInfoService }
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
