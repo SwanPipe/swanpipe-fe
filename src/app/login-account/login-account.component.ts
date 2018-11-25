@@ -15,9 +15,9 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import {Login} from "../models/login";
 
 import { AccountInfoService } from "../services/account-info.service";
+import {AccountInfo} from "../models/account-info";
 
 @Component({
   selector: 'app-login-account',
@@ -26,14 +26,14 @@ import { AccountInfoService } from "../services/account-info.service";
 })
 export class LoginAccountComponent implements OnInit {
 
-  login : Login = new Login();
+  accountInfo : AccountInfo = new AccountInfo();
 
   constructor(private service : AccountInfoService ) { }
 
   ngOnInit() {
     this.service.accountInfo()
-      .subscribe( login => {
-        this.login = login
+      .subscribe( accountInfo => {
+        this.accountInfo = accountInfo
       });
   }
 
