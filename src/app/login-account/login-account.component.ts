@@ -29,6 +29,7 @@ const LAST_FAILED_LOGIN = "lastFailedLogin";
 })
 export class LoginAccountComponent implements OnInit {
 
+  actorColumns: string[] = ['pun','owner'];
   accountInfo : AccountInfo = new AccountInfo();
 
   constructor(private service : AccountInfoService ) { }

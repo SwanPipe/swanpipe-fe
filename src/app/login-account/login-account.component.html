@@ -25,6 +25,25 @@
       <p>Created: {{accountInfo.created | date:'medium'}}</p>
       <p *ngIf="lastSuccessfulLogin()">Last Login: {{lastSuccessfulLogin() | date:'medium'}}</p>
       <p *ngIf="lastFailedLogin()">Last Failed Login: {{lastFailedLogin() | date:'medium'}}</p>
+      <mat-divider></mat-divider>
+      <div>
+        <mat-table [dataSource]="accountInfo.actors">
+
+          <ng-container matColumnDef="pun">
+            <mat-header-cell *matHeaderCellDef>Actor</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.pun}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="owner">
+            <mat-header-cell *matHeaderCellDef>Owner</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.owner}}</mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="actorColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: actorColumns"></mat-row>
+
+        </mat-table>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

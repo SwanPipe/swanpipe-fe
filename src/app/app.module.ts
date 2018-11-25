@@ -34,7 +34,8 @@ import {
   MatCardModule,
   MatProgressSpinnerModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatTableModule
 } from '@angular/material';
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -79,6 +80,7 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
     HttpClientModule
   ],
   providers: [
