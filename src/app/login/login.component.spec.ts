@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from "@angular/forms";
-import { MatTableModule } from "@angular/material";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {FormsModule} from "@angular/forms";
 
-import { AppRoutingModule } from "../app-routing.module";
-
-import { LoginComponent } from './login.component';
-import { LoginAccountComponent } from "../login-account/login-account.component";
+import {LoginComponent} from './login.component';
 
 import {NO_ERRORS_SCHEMA} from "@angular/core";
 import {JwtAuthenticationService} from "../services/jwt-authentication.service";
 
-import { MockJwtAuthService } from "../mocks/mock-jwt-auth-service";
+import {MockJwtAuthService} from "../mocks/mock-jwt-auth-service";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -35,13 +32,11 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        LoginComponent,
-        LoginAccountComponent
+        LoginComponent
       ],
       imports: [
         FormsModule,
-        AppRoutingModule,
-        MatTableModule
+        RouterTestingModule
       ],
       providers: [
         { provide: JwtAuthenticationService, useClass: MockJwtAuthService }
