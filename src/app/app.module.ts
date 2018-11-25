@@ -48,6 +48,7 @@ import { JwtInterceptorService } from "./interceptors/jwt-interceptor.service";
 import { ErrorInterceptorService } from "./interceptors/error-interceptor.service";
 import {JwtAuthenticationService} from "./services/jwt-authentication.service";
 import { SitePlagueComponent } from './site-plague/site-plague.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const appInitializerFn = (appConfig: AppConfigService) => {
   return () => {
@@ -61,7 +62,8 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     MainnavComponent,
     LoginComponent,
     LoginAccountComponent,
-    SitePlagueComponent
+    SitePlagueComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

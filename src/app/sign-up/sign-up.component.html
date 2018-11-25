@@ -1,0 +1,68 @@
+<!--
+  ~ Copyright (c) 2018.  Andrew Newton
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2%" class="signup-container">
+  <app-site-plague></app-site-plague>
+  <mat-card>
+    <mat-card-title-group>
+      <mat-card-title>Sign Up</mat-card-title>
+    </mat-card-title-group>
+  </mat-card>
+  <mat-card-content>
+    <form #signUpForm="ngForm" (ngSubmit)="signUp()">
+
+      <div fxLayout="column">
+
+        <mat-form-field>
+          <input matInput placeholder="Login ID"
+                 required name="loginId"
+                 [(ngModel)]="loginId">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Email"
+                 required name="email"
+                 [(ngModel)]="email">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Password"
+                 required name="passowrd"
+                 [(ngModel)]="password">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Confirm Password"
+                 required name="confirmPassword"
+                 [(ngModel)]="confirmPassword">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Name"
+                 required name="pun"
+                 [(ngModel)]="pun">
+        </mat-form-field>
+
+        <button mat-raised-button type="submit" color="accent"
+                [disabled]="!signUpForm.form.valid">Sign Up</button>
+
+      </div>
+
+    </form>
+  </mat-card-content>
+</div>
