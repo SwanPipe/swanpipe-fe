@@ -25,9 +25,16 @@
       <a mat-list-item href="#"><mat-icon matListIcon>public</mat-icon>Federated Posts</a>
       <a mat-list-item href="#"><mat-icon matListIcon>person_pin</mat-icon>Ambassador</a>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="login"><mat-icon matListIcon>account_circle</mat-icon>Log In</a>
-      <a mat-list-item href="#"><mat-icon matListIcon>add_circle</mat-icon>Sign Up</a>
-      <a mat-list-item href="#"><mat-icon matListIcon>info</mat-icon>About</a>
+      <div *ngIf="isLoggedIn()">
+        <a mat-list-item routerLink="login-account"><mat-icon matListIcon>info</mat-icon>Account Info</a>
+        <a mat-list-item routerLink="" (click)="logOut()"><mat-icon matListIcon>account_circle</mat-icon>Log Out</a>
+      </div>
+      <div *ngIf="!isLoggedIn()">
+        <a mat-list-item routerLink="login"><mat-icon matListIcon>account_circle</mat-icon>Log In</a>
+        <a mat-list-item href="#"><mat-icon matListIcon>add_circle</mat-icon>Sign Up</a>
+      </div>
+      <mat-divider></mat-divider>
+      <a mat-list-item href="#"><mat-icon matListIcon>info</mat-icon>About {{appConfig.menuName}}</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

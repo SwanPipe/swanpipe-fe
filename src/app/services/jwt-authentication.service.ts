@@ -20,6 +20,8 @@ import { map } from 'rxjs/operators'
 
 import { AppConfigService } from '../app-config.service';
 
+const LOGIN = "login";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -44,7 +46,7 @@ export class JwtAuthenticationService {
       this.httpOptions )
       .pipe( map( login => {
         if( login && login.token ) {
-          localStorage.setItem( "login", JSON.stringify( login ) );
+          localStorage.setItem( LOGIN, JSON.stringify( login ) );
         }
 
         return login;
@@ -52,6 +54,15 @@ export class JwtAuthenticationService {
   }
 
   logout() {
-    localStorage.removeItem( "login" );
+    localStorage.removeItem( LOGIN );
   }
+
+  isLoggedIn() : boolean {
+    if( localStorage.getItem( LOGIN ) ) {
+      return true;
+    }
+    //else
+    return false;
+  }
+
 }

@@ -20,6 +20,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { AppConfigService } from '../app-config.service';
+import { JwtAuthenticationService } from "../services/jwt-authentication.service";
 
 @Component({
   selector: 'app-mainnav',
@@ -37,9 +38,17 @@ export class MainnavComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private appConfigService: AppConfigService
+    private appConfigService: AppConfigService,
+    private jwtAuthService: JwtAuthenticationService
   ) {
     this.appConfig = appConfigService.getConfig();
   }
 
+  isLoggedIn() : boolean {
+    return this.jwtAuthService.isLoggedIn();
+  }
+
+  logOut() {
+    this.jwtAuthService.logout();
+  }
 }

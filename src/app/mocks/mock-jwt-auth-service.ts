@@ -17,4 +17,5 @@
 export class MockJwtAuthService {
   login( id: string, password: string ) {}
   logout() {}
+  isLoggedIn() : boolean { return false; }
 }

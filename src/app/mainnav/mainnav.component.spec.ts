@@ -33,6 +33,8 @@ import {NO_ERRORS_SCHEMA} from "@angular/core";
 import {AppConfigService} from "../app-config.service";
 
 import { MockAppConfigService } from "../mocks/mock-app-config-service";
+import { MockJwtAuthService } from "../mocks/mock-jwt-auth-service";
+import {JwtAuthenticationService} from "../services/jwt-authentication.service";
 
 describe('MainnavComponent', () => {
   let component: MainnavComponent;
@@ -53,7 +55,8 @@ describe('MainnavComponent', () => {
         HttpClientModule,
       ],
       providers: [
-        { provide: AppConfigService, useClass: MockAppConfigService }
+        { provide: AppConfigService, useClass: MockAppConfigService },
+        { provide: JwtAuthenticationService, useClass: MockJwtAuthService }
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     }).compileComponents();
