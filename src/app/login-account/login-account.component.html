@@ -21,11 +21,23 @@
       <mat-card-title>Account Details</mat-card-title>
     </mat-card-title-group>
     <mat-card-content>
-      <p>Login ID: {{accountInfo.loginId}}</p>
-      <p>Created: {{accountInfo.created | date:'medium'}}</p>
-      <p *ngIf="lastSuccessfulLogin()">Last Login: {{lastSuccessfulLogin() | date:'medium'}}</p>
-      <p *ngIf="lastFailedLogin()">Last Failed Login: {{lastFailedLogin() | date:'medium'}}</p>
+      <div>
+        <mat-table [dataSource]="loginInfo()">
+
+          <ng-container matColumnDef="item">
+            <mat-cell *matCellDef="let element">{{element.item}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="value">
+            <mat-cell *matCellDef="let element">{{element.value}}</mat-cell>
+          </ng-container>
+
+          <mat-row *matRowDef="let row; columns: loginColumns"></mat-row>
+
+        </mat-table>
+      </div>
       <mat-divider></mat-divider>
+      <p>Actors</p>
       <div>
         <mat-table [dataSource]="accountInfo.actors">
 

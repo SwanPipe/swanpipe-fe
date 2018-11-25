@@ -14,13 +14,20 @@
  * limitations under the License.
  */
 
-import { Component, OnInit } from '@angular/core';
+import {Component, LOCALE_ID, OnInit} from '@angular/core';
+import {formatDate} from "@angular/common";
 
 import { AccountInfoService } from "../services/account-info.service";
 import {AccountInfo} from "../models/account-info";
 
 const LAST_SUCCESSFUL_LOGIN = "lastSuccessfulLogin";
 const LAST_FAILED_LOGIN = "lastFailedLogin";
+const ROLES = "roles";
+
+export interface LoginInfo {
+  item: string;
+  value: any;
+}
 
 @Component({
   selector: 'app-login-account',
@@ -30,6 +37,7 @@ const LAST_FAILED_LOGIN = "lastFailedLogin";
 export class LoginAccountComponent implements OnInit {
 
   actorColumns: string[] = ['pun','owner'];
+  loginColumns: string[] = [ 'item', 'value' ];
   accountInfo : AccountInfo = new AccountInfo();
 
   constructor(private service : AccountInfoService ) { }
@@ -39,6 +47,39 @@ export class LoginAccountComponent implements OnInit {
       .subscribe( accountInfo => {
         this.accountInfo = accountInfo
       });
+  }
+
+  loginInfo() : LoginInfo[] {
+    let retval = [];
+    retval.push(
+      { item: "Login ID", value: this.accountInfo.loginId }
+    );
+    if( this.accountInfo.created ) {
+      retval.push(
+        { item: "Created",
+          value: formatDate( this.accountInfo.created, 'medium', "en-US" )}
+      );
+    }
+    if( this.accountInfo.data ) {
+      if( this.accountInfo.data[ LAST_SUCCESSFUL_LOGIN ] )  {
+        retval.push(
+          { item: "Last login",
+            value: formatDate( this.accountInfo.data[ LAST_SUCCESSFUL_LOGIN ], 'medium', "en-US" )}
+          );
+      }
+      if( this.accountInfo.data[ LAST_FAILED_LOGIN ] ) {
+        retval.push(
+          { item: "Last failed login",
+            value: formatDate( this.accountInfo.data[ LAST_FAILED_LOGIN ], 'medium', "en-US")}
+        );
+      }
+      if( this.accountInfo.data[ ROLES ] ) {
+        retval.push(
+          { item: "Roles", value: this.accountInfo.data[ ROLES ].join() }
+        );
+      }
+    }
+    return retval;
   }
 
   lastSuccessfulLogin() : string {
