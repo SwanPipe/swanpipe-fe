@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
 
   loginId: string;
   password: string;
+  invalidLogin = false;
 
   constructor(
     private router: Router,
@@ -39,6 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
+    this.invalidLogin = false;
     this.jwtAuth.login( this.loginId, this.password )
       .pipe( first() )
       .subscribe(
@@ -46,7 +48,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['login-account'] );
       },
       error => {
-        alert( 'Invalid Credentials' );
+          this.invalidLogin = true;
       }
       );
   }

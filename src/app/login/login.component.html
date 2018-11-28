@@ -24,6 +24,9 @@
         <form #loginForm="ngForm" (ngSubmit)="login()" >
 
           <div fxLayout="column">
+
+            <mat-error *ngIf="invalidLogin">Invalid Login ID or Password</mat-error>
+
             <mat-form-field>
               <input matInput placeholder="Login ID"
                      required name="loginId"
