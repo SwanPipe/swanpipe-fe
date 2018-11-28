@@ -15,10 +15,10 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
-import { JwtAuthenticationService } from "../services/jwt-authentication.service";
-import {first} from "rxjs/operators";
+import { JwtAuthenticationService } from '../services/jwt-authentication.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -38,15 +38,15 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login() : void {
+  login(): void {
     this.jwtAuth.login( this.loginId, this.password )
       .pipe( first() )
       .subscribe(
         data => {
-          this.router.navigate(["login-account"] );
+          this.router.navigate(['login-account'] );
       },
       error => {
-        alert( "Invalid Credentials" );
+        alert( 'Invalid Credentials' );
       }
       );
   }
