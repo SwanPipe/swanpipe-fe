@@ -31,7 +31,7 @@
       </div>
       <div *ngIf="!isLoggedIn()">
         <a mat-list-item routerLink="login"><mat-icon matListIcon>account_circle</mat-icon>Log In</a>
-        <a mat-list-item href="#"><mat-icon matListIcon>add_circle</mat-icon>Sign Up</a>
+        <a mat-list-item routerLink="signup"><mat-icon matListIcon>add_circle</mat-icon>Sign Up</a>
       </div>
       <mat-divider></mat-divider>
       <a mat-list-item href="#"><mat-icon matListIcon>info</mat-icon>About {{appConfig.menuName}}</a>

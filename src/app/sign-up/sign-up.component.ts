@@ -25,7 +25,6 @@ export class SignUpComponent implements OnInit {
 
   loginId: string;
   password: string;
-  confirmPassword: string;
   email: string;
   pun: string;
 
